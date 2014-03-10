@@ -56,8 +56,6 @@ function doWatch() {
 			})
 			
 			delete files
-		} else {
-			app.emit( 'misc', event, dirname )
 		}
 	})
 }
