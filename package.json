@@ -21,7 +21,7 @@
   "engines": {
     "node":                "*"
   },
-  "keywords":              ["icloud", "photostream", "osx", "mac", "realtime"],
+  "keywords":              ["icloud", "photostream", "osx", "mac", "realtime", "kqueue"],
   "license": {
     "type":                "Public Domain",
     "url":                 "https://github.com/fvdm/nodejs-osx-photostream/raw/master/LICENSE"
