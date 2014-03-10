@@ -1,0 +1,29 @@
+{
+  "author": {
+    "name":               "Franklin van de Meent",
+    "email":              "fr@nkl.in",
+    "url":                "http://frankl.in"
+  },
+  "name":                  "osx-photostream",
+  "description":           "Process new PhotoStream photos in realtime with iCloud on OSX",
+  "version":               "1.0.0",
+  "repository": {
+      "type":              "git",
+      "url":               "git://github.com/fvdm/nodejs-osx-photostream.git"
+  },
+  "bugs": {
+    "url":                 "https://github.com/fvdm/nodejs-osx-photostream/issues"
+  },
+  "main":                  "osx-photostream.js",
+  "dependencies":          {},
+  "devDependencies":       {},
+  "optionalDependencies":  {},
+  "engines": {
+    "node":                "*"
+  },
+  "keywords":              ["icloud", "photostream", "osx", "mac", "realtime"],
+  "license": {
+    "type":                "Public Domain",
+    "url":                 "https://github.com/fvdm/nodejs-osx-photostream/raw/master/LICENSE"
+  }
+}
