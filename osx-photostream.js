@@ -26,7 +26,7 @@ function doWatch() {
 		if( event === 'rename' && dirname.match(/^[a-z0-9]{42}$/) ) {
 			fs.readdir( app.watchPath +'/'+ dirname, function( err, files ) {
 				if( !err ) {
-					for( var f in files ) {
+					for( var f = 0; f < files.length; f++ ) {
 						var file = {}
 						file.pathname = app.watchPath +'/'+ dirname
 						file.filename = files[f]
