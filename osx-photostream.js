@@ -25,32 +25,30 @@ function doWatch() {
   fs.watch( app.watchPath, function( event, dirname ) {
     if( event === 'rename' && dirname.match(/^[a-z0-9]{42}$/) ) {
       fs.readdir( app.watchPath +'/'+ dirname, function( err, files ) {
-        if( !err ) {
-          for( var f = 0; f < files.length; f++ ) {
-            var file = {}
-            file.pathname = app.watchPath +'/'+ dirname
-            file.filename = files[f]
-            file.fullpath = file.pathname +'/'+ file.filename
+        if( err ) { return app.emit( 'fail', 'readdir failed', err, app.watchPath +'/'+ dirname )}
 
-            app.emit( 'update', file )
+        for( var f = 0; f < files.length; f++ ) {
+          var file = {}
+          file.pathname = app.watchPath +'/'+ dirname
+          file.filename = files[f]
+          file.fullpath = file.pathname +'/'+ file.filename
 
-            if( app.writeDest ) {
-              file.copypath = app.writeDest +'/'+ files[f]
-              exec(
-                '/bin/cp -p '+ cmdescape(file.fullpath) +' '+ cmdescape(file.copypath),
-                { timeout: 5000 },
-                function( err, stdout, stderr ) {
-                  if( err ) {
-                    app.emit( 'fail', 'copy failed', err, file )
-                  } else {
-                    app.emit( 'copy', file )
-                  }
+          app.emit( 'update', file )
+
+          if( app.writeDest ) {
+            file.copypath = app.writeDest +'/'+ files[f]
+            exec(
+              '/bin/cp -p '+ cmdescape(file.fullpath) +' '+ cmdescape(file.copypath),
+              { timeout: 5000 },
+              function( err, stdout, stderr ) {
+                if( err ) {
+                  app.emit( 'fail', 'copy failed', err, file )
+                } else {
+                  app.emit( 'copy', file )
                 }
-              )
-            }
+              }
+            )
           }
-        } else {
-          app.emit( 'fail', 'readdir failed', err, app.watchPath +'/'+ dirname )
         }
       })
 
