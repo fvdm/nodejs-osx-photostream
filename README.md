@@ -159,5 +159,5 @@ Author
 ------
 
 Franklin van de Meent
-- [Website](http://frankl.in)
-- [Github](https://github.com/fvdm)
+| [Website](http://frankl.in)
+| [Github](https://github.com/fvdm)
