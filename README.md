@@ -56,7 +56,7 @@ var ps = require('osx-photostream')('~/Pictures/iCloud')
 var ps = require('osx-photostream')()
 
 ps.on( 'update', function( file ) {
-	console.log('New image added: '+ file.filename)
+  console.log('New image added: '+ file.filename)
 })
 ```
 
@@ -83,7 +83,7 @@ A new file was added to your PhotoStream.
 
 ```js
 ps.on( 'update', function( file ) {
-	console.log( 'New image: '+ file.filename )
+  console.log( 'New image: '+ file.filename )
 })
 ```
 
@@ -96,7 +96,7 @@ This event is only triggered when a destination path is set and the copy succeed
 
 ```js
 ps.on( 'copy', function( file ) {
-	// tell another app or module the image at file.copypath is ready.
+  // tell another app or module the image at file.copypath is ready.
 })
 ```
 
@@ -105,14 +105,16 @@ ps.on( 'copy', function( file ) {
 
 An error occured. You can safely ignore this event, but it may help in times of trouble.
 
-	reason       Either `copy failed` or `readdir failed`
-	error        The error as reported.
-	fileObject   See below.
+parameter  | description
+---------- | ----------------------------------------------
+reason     | `copy failed`, `readdir failed` or `exception`
+error      | The error as reported.
+fileObject | See below.
 
 ```js
 ps.on( 'fail', function( reason, error, file ) {
-	console.log( 'ERROR: '+ reason +' - '+ file.filename )
-	console.log( error )
+  console.log( 'ERROR: '+ reason +' - '+ file.filename )
+  console.log( error )
 })
 ```
 
@@ -120,10 +122,12 @@ ps.on( 'fail', function( reason, error, file ) {
 fileObject
 ----------
 
-	.pathname   Path to your PhotoStream location
-	.filename   Filename of the new file, i.e. IMG_5778.PNG
-	.fullpath   .pathname +'/'+ .filename
-	.copypath   If copied, new location with filename
+property  | description
+--------- | -------------------------------------------
+.pathname | Path to your PhotoStream location
+.filename | Filename of the new file, i.e. IMG_5778.PNG
+.fullpath | .pathname +'/'+ .filename
+.copypath | If copied, new location with filename
 
 
 Unlicense
