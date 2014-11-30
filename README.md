@@ -1,5 +1,5 @@
-nodejs-osx-photostream
-======================
+osx-photostream
+===============
 
 Process new images in real-time with iCloud PhotoStream on OSX.
 
@@ -27,12 +27,12 @@ Installation
 
 The release on npm is always the latest stable version:
 
-	npm install osx-photostream
+`npm install osx-photostream`
 
 
 The code in the Github repository is the most recent, but can be unstable:
 
-	npm install git+https://github.com/fvdm/nodejs-osx-photostream
+`npm install git+https://github.com/fvdm/nodejs-osx-photostream`
 
 
 Usage
@@ -153,3 +153,11 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org>
+
+
+Author
+------
+
+Franklin van de Meent
+- [Website](http://frankl.in)
+- [Github](https://github.com/fvdm)
