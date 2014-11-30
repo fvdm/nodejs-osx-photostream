@@ -61,6 +61,19 @@ ps.on( 'update', function( file ) {
 ```
 
 
+### Copy to folder and forward with iMessage to friend
+
+```js
+var ps = require('osx-photostream')('~/Pictures/iCloud')
+var exec = require('child_process').exec
+ 
+ps.on( 'copy', function( file ) {
+  // Forward image to friend with iMessage
+  exec('osascript -e "tell application \"Messages\" to send POSIX file \"'+ file.copypath +'\" to buddy \"friend@email.tld\" of service \"E:my@email.tld\""')
+})
+```
+
+
 Events
 ------
 
