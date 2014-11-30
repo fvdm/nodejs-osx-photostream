@@ -10,10 +10,13 @@ License:       Unlicense / Public domain (see LICENSE file)
 var fs = require('fs') 
 var EE = require('events').EventEmitter
 var exec = require('child_process').exec
-
 var app = new EE()
 
 app.watchPath = process.env.HOME +'/Library/Application Support/iLifeAssetManagement/assets/sub'
+
+process.on( 'uncaughtException', function(err) {
+  app.emit( 'fail', 'exception', err )
+})
 
 module.exports = function( dest ) {
   app.writeDest = dest ? dest.replace( /^~(\/.*)/, process.env.HOME +'$1' ) : false
