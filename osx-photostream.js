@@ -41,6 +41,7 @@ function doWatch() {
 
           if( app.writeDest ) {
             file.copypath = app.writeDest +'/'+ files[f]
+            exec('mkdir -p '+ app.writeDest)
             exec(
               '/bin/cp -p '+ cmdescape(file.fullpath) +' '+ cmdescape(file.copypath),
               { timeout: 5000 },
