@@ -15,7 +15,9 @@
     "url":                 "https://github.com/fvdm/nodejs-osx-photostream/issues"
   },
   "main":                  "osx-photostream.js",
-  "dependencies":          {},
+  "dependencies": {
+    "daemonize2":          "0.x.x"
+  },
   "devDependencies":       {},
   "optionalDependencies":  {},
   "engines": {
