@@ -54,7 +54,7 @@ function doWatch() {
             file.copypath = app.writeDest +'/'+ files[f]
 
             exec(
-              'mkdir -p '+ app.writeDest,
+              'mkdir -p '+ cmdescape(app.writeDest),
               { timeout: 3000 },
               function( err, stdout, stderr ) {
                 if( err ) {
