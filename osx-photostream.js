@@ -19,7 +19,7 @@ process.on( 'uncaughtException', function(err) {
 })
 
 module.exports = function( dest ) {
-  app.writeDest = dest ? dest.replace( /^~(\/.*)/, process.env.HOME +'$1' ) : false
+  app.writeDest = typeof dest === 'string' ? dest.replace( /^~(\/.*)/, process.env.HOME +'$1' ) : false
   doWatch()
   return app
 }
