@@ -112,7 +112,7 @@ ps.on( 'watching', function( watchPath ) {
 ```
 
 
-### fail : callback ( reason, error, fileObject )
+### fail : callback ( reason, error, [fileObject] )
 
 An error occured. You can safely ignore this event, but it may help in times of trouble.
 
