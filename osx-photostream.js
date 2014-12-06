@@ -52,7 +52,18 @@ function doWatch() {
 
           if( app.writeDest ) {
             file.copypath = app.writeDest +'/'+ files[f]
-            exec('mkdir -p '+ app.writeDest)
+
+            exec(
+              'mkdir -p '+ app.writeDest,
+              { timeout: 3000 },
+              function( err, stdout, stderr ) {
+                if( err ) {
+                  // ! App Event: fail - mkdir failed
+                  app.emit( 'fail', 'mkdir failed', err, app.writeDest )
+                }
+              }
+            )
+
             exec(
               '/bin/cp -p '+ cmdescape(file.fullpath) +' '+ cmdescape(file.copypath),
               { timeout: 5000 },
