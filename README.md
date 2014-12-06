@@ -32,7 +32,7 @@ The release on npm is always the latest stable version:
 
 The code in the Github repository is the most recent, but can be unstable:
 
-`npm install git+https://github.com/fvdm/nodejs-osx-photostream`
+`npm install fvdm/nodejs-osx-photostream`
 
 
 Usage
