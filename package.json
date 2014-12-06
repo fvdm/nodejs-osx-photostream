@@ -6,7 +6,7 @@
   },
   "name":                  "osx-photostream",
   "description":           "Process new PhotoStream photos in realtime with iCloud on OSX",
-  "version":               "1.0.0",
+  "version":               "1.1.0",
   "repository": {
       "type":              "git",
       "url":               "git://github.com/fvdm/nodejs-osx-photostream.git"
