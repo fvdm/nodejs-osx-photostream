@@ -118,7 +118,7 @@ An error occured. You can safely ignore this event, but it may help in times of 
 
 parameter  | description
 ---------- | ----------------------------------------------
-reason     | `copy failed`, `readdir failed` or `exception`
+reason     | See table below.
 error      | The error as reported.
 fileObject | See below.
 
@@ -128,6 +128,15 @@ ps.on( 'fail', function( reason, error, file ) {
   console.log( error )
 })
 ```
+
+reason         | description
+-------------- | ------------------------------------
+exception      | Uncaught exception
+watch error    | Something went wrong during watching
+readdir failed | New item can not be read
+mkdir failed   | Can not create copy destination
+copy failed    | Can not copy new file to destination
+
 
 
 fileObject
