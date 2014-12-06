@@ -4,10 +4,10 @@ osx-photostream
 Process new images in real-time with iCloud PhotoStream on OSX.
 
 This node.js module can run in the background to listen ([kqueue](http://en.wikipedia.org/wiki/Kqueue)) for new images
-in your PhotoStream on iCloud. You can snap a photo with your iPhone and within moments have your Mac archive it to another folder or do other post-processing with it.
+in your PhotoStream on iCloud. You can snap a photo with your iPhone and within moments have your Mac archive it to 
+another folder or do other post-processing with it.
 
 
-* [node.js](http://nodejs.org)
 * [Package on npm](http://npmjs.org/package/osx-photostream)
 * [Source-code on Github](https://github.com/fvdm/nodejs-osx-photostream)
 * [Feedback](https://github.com/fvdm/nodejs-osx-photostream/issues)
@@ -16,10 +16,10 @@ in your PhotoStream on iCloud. You can snap a photo with your iPhone and within 
 Requirements
 ------------
 
-* Mac OSX (tested on 10.9 Mavericks)
+* Mac OS X (tested on 10.9 and 10.10)
 * Mac with iCloud account and PhotoStream enabled
 * Another Apple device with iCloud and PhotoStream enabled
-* node.js
+* [node.js](http://nodejs.org)
 
 
 Installation
