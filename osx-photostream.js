@@ -30,6 +30,11 @@ function doWatch() {
     // ! App Event: watching
     app.emit( 'watching', app.watchPath )
     
+    // ! Watch Event: error
+    if( event === 'error' ) {
+      app.emit( 'fail', 'watch error', dirname )
+    }
+    
     // ! Watch Event: rename
     if( event === 'rename' && dirname.match(/^[a-z0-9]{42}$/) ) {
       fs.readdir( app.watchPath +'/'+ dirname, function( err, files ) {
