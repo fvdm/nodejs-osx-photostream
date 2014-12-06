@@ -101,6 +101,17 @@ ps.on( 'copy', function( file ) {
 ```
 
 
+### watching : callback ( watchPath )
+
+The app is watching `watchPath` for updates.
+
+```js
+ps.on( 'watching', function( watchPath ) {
+  console.log( 'Watching PhotoStream' )
+})
+```
+
+
 ### fail : callback ( reason, error, fileObject )
 
 An error occured. You can safely ignore this event, but it may help in times of trouble.
