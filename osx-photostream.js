@@ -26,6 +26,7 @@ module.exports = function( dest ) {
 
 function doWatch() {
   fs.watch( app.watchPath, function( event, dirname ) {
+    app.emit( 'watching', app.watchPath )
     if( event === 'rename' && dirname.match(/^[a-z0-9]{42}$/) ) {
       fs.readdir( app.watchPath +'/'+ dirname, function( err, files ) {
         if( err ) { return app.emit( 'fail', 'readdir failed', err, app.watchPath +'/'+ dirname )}
