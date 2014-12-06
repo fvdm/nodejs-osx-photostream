@@ -14,6 +14,7 @@ var app = new EE()
 
 app.watchPath = process.env.HOME +'/Library/Application Support/iLifeAssetManagement/assets/sub'
 
+// ! App Event: fail - exception
 process.on( 'uncaughtException', function(err) {
   app.emit( 'fail', 'exception', err )
 })
@@ -26,9 +27,13 @@ module.exports = function( dest ) {
 
 function doWatch() {
   fs.watch( app.watchPath, function( event, dirname ) {
+    // ! App Event: watching
     app.emit( 'watching', app.watchPath )
+    
+    // ! Watch Event: rename
     if( event === 'rename' && dirname.match(/^[a-z0-9]{42}$/) ) {
       fs.readdir( app.watchPath +'/'+ dirname, function( err, files ) {
+        // ! App Event: fail - readdir failed
         if( err ) { return app.emit( 'fail', 'readdir failed', err, app.watchPath +'/'+ dirname )}
 
         for( var f = 0; f < files.length; f++ ) {
@@ -37,6 +42,7 @@ function doWatch() {
           file.filename = files[f]
           file.fullpath = file.pathname +'/'+ file.filename
 
+          // ! App Event: update
           app.emit( 'update', file )
 
           if( app.writeDest ) {
@@ -47,8 +53,10 @@ function doWatch() {
               { timeout: 5000 },
               function( err, stdout, stderr ) {
                 if( err ) {
+                  // ! App Event: fail - copy failed
                   app.emit( 'fail', 'copy failed', err, file )
                 } else {
+                  // ! App Event: copy
                   app.emit( 'copy', file )
                 }
               }
