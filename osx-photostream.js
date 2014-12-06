@@ -7,7 +7,7 @@ Feedback:      https://github.com/fvdm/nodejs-osx-photostream/issues
 License:       Unlicense / Public domain (see LICENSE file)
 */
 
-var fs = require('fs') 
+var fs = require('fs')
 var EE = require('events').EventEmitter
 var exec = require('child_process').exec
 var app = new EE()
@@ -29,12 +29,12 @@ function doWatch() {
   fs.watch( app.watchPath, function( event, dirname ) {
     // ! App Event: watching
     app.emit( 'watching', app.watchPath )
-    
+
     // ! Watch Event: error
     if( event === 'error' ) {
       app.emit( 'fail', 'watch error', dirname )
     }
-    
+
     // ! Watch Event: rename
     if( event === 'rename' && dirname.match(/^[a-z0-9]{42}$/) ) {
       fs.readdir( app.watchPath +'/'+ dirname, function( err, files ) {
