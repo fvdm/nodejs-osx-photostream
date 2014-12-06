@@ -1,6 +1,12 @@
 Changelog
 =========
 
+v1.1.1
+------
+
+* Escape writeDest for mkdir
+
+
 v1.1.0
 ------
 
