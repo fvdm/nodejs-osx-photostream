@@ -19,7 +19,7 @@
   "devDependencies":       {},
   "optionalDependencies":  {},
   "engines": {
-    "node":                "*"
+    "node":                ">= 4"
   },
   "keywords":              ["icloud", "photostream", "osx", "mac", "realtime", "kqueue"],
   "license": {
